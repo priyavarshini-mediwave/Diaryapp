@@ -21,17 +21,16 @@ function makeNotesdiv(note) {
   div.setAttribute("id", `note-${note.id}`);
 
   const h2 = document.createElement("h2");
-  h2.innerText = note["date"];
+  h2.innerText = datechange(note["date"]);
 
   const h3 = document.createElement("h3");
   h3.innerText = note.entry;
-  
 
   const btnremove = document.createElement("button");
 
   btnremove.setAttribute("class", "btn-remove");
   btnremove.setAttribute("id", `btn-${note.id}`);
-  
+
   btnremove.innerText = "Delete";
   btnremove.addEventListener("click", function () {
     removeNote(note["id"]);
@@ -60,7 +59,8 @@ function hookform() {
     e.preventDefault();
     let Adddate = document.querySelector("#date-input").value;
     let Addtext = document.querySelector("#text-entry").value;
-
+    //dateformat
+    const newDate = datechange(Adddate);
     const note = {
       id: new Date().getTime(),
       date: Adddate,
@@ -101,6 +101,15 @@ function sortnotes() {
   notes.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date);
   });
+}
+
+function datechange(dategn) {
+  const date = new Date(dategn);
+  const dateyr = date.getFullYear();
+  const datemon = date.getMonth() + 1;
+  const dateno = date.getDate();
+  const changedate = `${dateno}/${datemon}/${dateyr}`;
+  return changedate;
 }
 
 getfromLocal();
