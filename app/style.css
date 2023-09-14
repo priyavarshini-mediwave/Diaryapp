@@ -59,6 +59,7 @@ body {
   right:10px; 
 }
 
+
 @media (max-width: 768px) {
   #app {
     grid-template-columns: auto auto;

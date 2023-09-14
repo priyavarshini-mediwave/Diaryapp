@@ -92,7 +92,7 @@ function savetoLocal() {
 function getfromLocal() {
   const str = localStorage.getItem("my-notes-list");
   if (!str) {
-    movies = [];
+    notes = [];
   } else {
     notes = JSON.parse(str);
   }
