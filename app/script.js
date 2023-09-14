@@ -60,7 +60,7 @@ function hookform() {
     let Adddate = document.querySelector("#date-input").value;
     let Addtext = document.querySelector("#text-entry").value;
     //dateformat
-    const newDate = datechange(Adddate);
+    //const newDate = datechange(Adddate);
     const note = {
       id: new Date().getTime(),
       date: Adddate,
